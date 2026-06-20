@@ -361,13 +361,13 @@
     <div class="onb-step" id="onb-step-2" style="display:none;">
       <h2>Dê um nome ao seu pinguim!</h2>
       <div class="name-suggestions">
-        <span class="name-chip" onclick="setChip(this,'penguin')">Mumble</span>
+        <span class="name-chip" onclick="setChip(this,'penguin')">Mano</span>
         <span class="name-chip" onclick="setChip(this,'penguin')">Glória</span>
+        <span class="name-chip" onclick="setChip(this,'penguin')">Amoroso</span>
         <span class="name-chip" onclick="setChip(this,'penguin')">Erik</span>
         <span class="name-chip" onclick="setChip(this,'penguin')">Ramon</span>
+        <span class="name-chip" onclick="setChip(this,'penguin')">Robalo</span>
         <span class="name-chip" onclick="setChip(this,'penguin')">Carmen</span>
-        <span class="name-chip" onclick="setChip(this,'penguin')">Lovelace</span>
-        <span class="name-chip" onclick="setChip(this,'penguin')">Atticus</span>
       </div>
       <input type="text" id="onb-penguin-name" placeholder="ou escolha um nome..." maxlength="20" style="margin-bottom:16px;">
       <button class="btn btn-primary" onclick="onbFinish()">Conhecer meu pinguim 🐧</button>
@@ -1023,12 +1023,9 @@ function init() {
   showNav();
   showScreen('home');
   checkAchievements();
-  // Checar banner de aniversário
-  const _now = new Date();
-  if (_now.getDate() === 19 && _now.getMonth() === 5) {
-    const b = document.getElementById('birthday-banner');
-    if (b) b.style.display = '';
-  }
+  // Banner de aniversário — fixo por enquanto, depois trocar pra checagem de data
+  const b = document.getElementById('birthday-banner');
+  if (b) b.style.display = '';
 }
 
 function initAchievements() {
@@ -1128,9 +1125,10 @@ function renderHome() {
   const todayEl = document.getElementById('today-badge');
   if (todayEl) todayEl.innerHTML = `📅 ${todayFmt.charAt(0).toUpperCase() + todayFmt.slice(1)}`;
 
-  // Parabéns Natalia — 19/06
-  const now = new Date();
-  const isNataliaDay = now.getDate() === 19 && now.getMonth() === 5; // mês 5 = junho (0-indexed)
+  // Parabéns Natalia — fixo por enquanto (independente da data)
+  // Pra reativar a checagem de data, troque a linha abaixo por:
+  // const isNataliaDay = new Date().getDate() === 19 && new Date().getMonth() === 5;
+  const isNataliaDay = true;
   const banner = document.getElementById('birthday-banner');
   if (banner) banner.style.display = isNataliaDay ? '' : 'none';
 
